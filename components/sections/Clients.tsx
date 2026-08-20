@@ -1,7 +1,10 @@
+"use client";
+
 import { ArrowUpRight } from "lucide-react";
 
 import { SITE } from "@/constants/site";
 import Container from "@/components/ui/Container";
+import { handleScrollTo } from "@/lib/utils";
 
 export default function Clients() {
   return (
@@ -121,6 +124,7 @@ export default function Clients() {
 
             <a
               href="#contact"
+              onClick={(e) => handleScrollTo(e, "#contact")}
               className="group hidden items-center gap-2 text-sm font-semibold text-[#171717] sm:flex"
             >
               Start a conversation

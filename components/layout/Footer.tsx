@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { SITE } from "@/constants/site";
 import Container from "@/components/ui/Container";
+import { handleScrollTo } from "@/lib/utils";
 
 export default function Footer() {
   return (
@@ -15,9 +18,10 @@ export default function Footer() {
             <div>
               <Link
                 href="#about"
+                onClick={(e) => handleScrollTo(e, "#about")}
                 className="inline-block text-2xl font-bold tracking-[-0.05em]"
               >
-                FORESEE
+                FORE<span className="text-brand-red">SEE</span>
               </Link>
 
               <p className="mt-5 max-w-md text-sm leading-[1.7] text-white/55">
@@ -26,6 +30,7 @@ export default function Footer() {
 
               <Link
                 href="#contact"
+                onClick={(e) => handleScrollTo(e, "#contact")}
                 className="group mt-7 inline-flex items-center gap-3 text-sm font-semibold text-white"
               >
                 Start a conversation
@@ -47,6 +52,7 @@ export default function Footer() {
                   <Link
                     key={item.href}
                     href={item.href}
+                    onClick={(e) => handleScrollTo(e, item.href)}
                     className="w-fit text-sm text-white/65 transition-colors duration-200 hover:text-white"
                   >
                     {item.label}

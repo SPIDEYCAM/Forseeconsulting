@@ -21,7 +21,8 @@ export default function Industries() {
 
             <div>
               <h2 className="max-w-4xl text-[clamp(2.75rem,5.5vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-[#171717]">
-                Expertise where
+                <span className="font-playfair">Expertise where  </span>
+                
                 <br />
                 <span className="text-brand-teal-dark">
                   it matters most.

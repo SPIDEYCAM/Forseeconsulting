@@ -1,9 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=Inter:wght@400;500;600;700;800&family=Playwrite+VN:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+VN:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "Adelia";
+  src: url("/fonts/adelia.otf") format("opentype"),
+       url("/font/adelia alternate.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Amoresa";
+  src: url("/font/Amoresa.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* =========================================================
    FORESEE CONSULTING
@@ -38,8 +55,13 @@
   --color-surface-soft: #fafafa;
 
   /* Typography */
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-accent: "Dancing Script", "Caveat", "Playwrite VN", cursive;
+  --font-sans: "Raleway", ui-sans-serif, system-ui, sans-serif;
+  --font-adelia: "Adelia", "Amoresa", cursive;
+  --font-amoresa: "Amoresa", "Adelia", cursive;
+  --font-great-vibes: "Great Vibes", cursive;
+  --font-playfair: "Playfair Display", serif;
+  --font-playwrite: "Playwrite VN", cursive;
+  --font-accent: "Amoresa", "Adelia", "Dancing Script", "Caveat", cursive;
 
   /* Radius */
   --radius-sm: 0.5rem;
@@ -71,6 +93,10 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
 }
 
 body {
@@ -187,8 +213,28 @@ button {
    BRAND UTILITIES
    --------------------------------------------------------- */
 
+.font-adelia {
+  font-family: var(--font-adelia), "Adelia", "Amoresa", cursive;
+}
+
+.font-amoresa {
+  font-family: var(--font-amoresa), "Amoresa", "Adelia", cursive;
+}
+
+.font-great-vibes {
+  font-family: var(--font-great-vibes), "Great Vibes", cursive;
+}
+
+.font-playfair {
+  font-family: var(--font-playfair), "Playfair Display", serif;
+}
+
+.font-playwrite {
+  font-family: var(--font-playwrite), "Playwrite VN", cursive;
+}
+
 .font-accent {
-  font-family: var(--font-accent), "Dancing Script", "Caveat", "Playwrite VN", cursive;
+  font-family: var(--font-accent), "Amoresa", "Adelia", "Dancing Script", "Caveat", cursive;
 }
 
 .text-brand {

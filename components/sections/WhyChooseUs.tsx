@@ -24,10 +24,10 @@ export default function WhyChooseUs() {
               Why Foresee
             </p>
 
-            <h2 className="mt-7 text-[clamp(3rem,7vw,7rem)] font-semibold leading-[0.88] tracking-[-0.065em]">
+            <h2 className="font-playfair mt-7 text-[clamp(3rem,7vw,7rem)] font-semibold leading-[0.88] tracking-[-0.065em]">
               Not just a
               <br />
-              <span className="text-brand-teal">
+              <span className="text-brand-teal font-sans">
                 candidate.
               </span>
               <br />

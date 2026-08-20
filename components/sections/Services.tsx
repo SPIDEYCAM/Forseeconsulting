@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { SITE } from "@/constants/site";
 import Container from "@/components/ui/Container";
+import { handleScrollTo } from "@/lib/utils";
 
 const serviceGroups = [
   {
@@ -73,7 +76,11 @@ export default function Services() {
               </p>
 
               <h2 className="mt-5 max-w-xl text-[clamp(2.75rem,5vw,5rem)] font-semibold leading-[0.95] tracking-[-0.055em] text-[#171717]">
-                Talent solutions built around your business.
+                <span className="text-brand font-playfair font-normal text-[1.2em]">
+                  Talent
+                </span>
+                <br/>
+                solutions built around your business.
               </h2>
             </div>
 
@@ -128,6 +135,7 @@ export default function Services() {
 
             <Link
               href="#contact"
+              onClick={(e) => handleScrollTo(e, "#contact")}
               className="group inline-flex w-fit items-center gap-3 text-sm font-semibold text-[#171717]"
             >
               Discuss your requirement

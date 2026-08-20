@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
 import { SITE } from "@/constants/site";
-import { cn } from "@/lib/utils";
+import { cn, handleScrollTo } from "@/lib/utils";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,12 +21,12 @@ export default function Navbar() {
           {/* Logo / Brand */}
           <Link
             href="#about"
-            onClick={closeMenu}
+            onClick={(e) => handleScrollTo(e, "#about", closeMenu)}
             className="shrink-0"
             aria-label="Foresee Consulting Services - Home"
           >
             <span className="text-xl font-bold tracking-[-0.04em]">
-              FORESEE
+              FORE<span className="text-brand">SEE</span>
             </span>
           </Link>
 
@@ -39,6 +39,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={(e) => handleScrollTo(e, item.href)}
                 className="nav-link"
               >
                 {item.label}
@@ -49,6 +50,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <Link
             href="#contact"
+            onClick={(e) => handleScrollTo(e, "#contact")}
             className="btn-primary hidden sm:inline-flex"
           >
             Let's Talk
@@ -88,7 +90,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={closeMenu}
+                onClick={(e) => handleScrollTo(e, item.href, closeMenu)}
                 className="rounded-xl px-4 py-3 text-base font-medium transition-colors hover:bg-brand-red-light hover:text-brand-red"
               >
                 {item.label}
@@ -97,7 +99,7 @@ export default function Navbar() {
 
             <Link
               href="#contact"
-              onClick={closeMenu}
+              onClick={(e) => handleScrollTo(e, "#contact", closeMenu)}
               className="btn-primary mt-3 w-full"
             >
               Let's Talk

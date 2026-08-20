@@ -1,9 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 
 import { SITE } from "@/constants/site";
 import Container from "@/components/ui/Container";
+import { handleScrollTo } from "@/lib/utils";
 
 export default function About() {
   return (
@@ -19,14 +22,19 @@ export default function About() {
               {SITE.about.eyebrow}
             </p>
 
-            <h1 className="mt-7 max-w-4xl text-[clamp(3.25rem,7vw,6.75rem)] font-semibold leading-[0.95] tracking-[-0.04em]">
-              <span className="font-normal text-[0.85em]">Connecting</span>{" "}
-              <span className="font-accent font-normal text-brand text-[1.08em] px-1 inline-block">
-                businessess 
+            <h1 className="mt-7 max-w-4xl text-[clamp(3rem,6.25vw,6rem)] font-semibold leading-[1.25] tracking-[-0.035em]">
+              <span className="font-normal text-[0.600em] text-ink-light inline-block">Connecting</span>{" "}
+              <span className="text-brand inline-flex items-baseline leading-none">
+                <span className="font-amoresa font-normal text-[0.75em] leading-none select-none inline-block mr-[-0.25em]">
+                  B
+                </span>
+                <span className="font-playfair font-normal uppercase text-[0.90em] tracking-tighter leading-none">
+                  USINESSES
+                </span>
               </span>{" "}
               <br />
           
-              <span className="text-brand">
+              <span className="text-ink-light font-semibold block mt-5">
                 with the right talent.
               </span>
             </h1>
@@ -38,6 +46,7 @@ export default function About() {
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 href="#services"
+                onClick={(e) => handleScrollTo(e, "#services")}
                 className="btn-primary"
               >
                 Explore Services
@@ -46,6 +55,7 @@ export default function About() {
 
               <Link
                 href="#contact"
+                onClick={(e) => handleScrollTo(e, "#contact")}
                 className="btn-secondary"
               >
                 Let's Talk
