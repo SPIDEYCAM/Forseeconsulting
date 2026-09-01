@@ -252,10 +252,10 @@ export default function PrivacyPage() {
                   </p>
 
                   <a
-                    href="mailto:anamika@forseeconsultingservices.co.in"
+                    href="mailto:anamika@forseeconsultingservices.in"
                     className="mt-6 inline-flex text-sm font-semibold text-[#171717] underline decoration-brand-red underline-offset-4 transition-colors hover:text-brand-red"
                   >
-                    anamika@forseeconsultingservices.co.in
+                    anamika@forseeconsultingservices.in
                   </a>
                 </div>
               </section>

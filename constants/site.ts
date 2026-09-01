@@ -229,7 +229,7 @@ export const SITE = {
   },
 
   contact: {
-    email: "anamika@forseeconsultingservices.co.in",
+    email: "anamika@forseeconsultingservices.in",
     alternateEmail: "forseeconsultingservices@yahoo.co.in",
     phone: "9958318844",
     whatsapp: "9958318844",
