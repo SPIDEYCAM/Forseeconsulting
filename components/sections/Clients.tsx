@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 import { SITE } from "@/constants/site";
@@ -64,22 +65,36 @@ export default function Clients() {
           </div>
 
           {/* Logo area */}
-          <div className="mt-16">
-            <div className="grid min-h-[260px] place-items-center rounded-[2rem] border border-[#171717]/10 bg-brand-cream px-6 py-16">
-              <div className="max-w-xl text-center">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-red">
-                  Client Partners
-                </p>
+          <div className="mt-16 border-t border-[#171717]/10 pt-16 sm:pt-20">
+            <div className="mb-12 text-center sm:mb-16">
+              <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-brand-red">
+                Trusted by leading organizations
+              </p>
 
-                <p className="mt-4 text-[clamp(1.5rem,2.5vw,2.25rem)] font-semibold leading-tight tracking-[-0.04em] text-[#171717]">
-                  Your trusted partners belong here.
-                </p>
+              <h3 className="text-3xl font-light uppercase tracking-[0.12em] text-[#171717] sm:text-4xl md:text-5xl">
+                Our Clients
+              </h3>
 
-                <p className="mx-auto mt-4 max-w-md text-sm leading-[1.6] text-[#737373]">
-                  Client logos will be added once the final
-                  brand assets are provided.
-                </p>
-              </div>
+              <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-[#666]">
+                Valued organizations we have served across industries and sectors.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 items-center justify-items-center gap-6 sm:grid-cols-3 lg:grid-cols-5 lg:gap-8">
+              {SITE.clients.logos.map((logo) => (
+                <div
+                  key={logo.name}
+                  className="flex h-24 w-full items-center justify-center p-4 transition-transform duration-300 hover:scale-105"
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.name}
+                    width={180}
+                    height={72}
+                    className="max-h-12 w-auto max-w-[140px] object-contain sm:max-h-14 sm:max-w-[160px]"
+                  />
+                </div>
+              ))}
             </div>
           </div>
 

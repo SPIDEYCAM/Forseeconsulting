@@ -22,6 +22,9 @@ export function handleScrollTo(
 
   const element = document.getElementById(id);
   if (element) {
+    if (e) {
+      e.preventDefault();
+    }
     element.scrollIntoView({ behavior: "smooth", block: "start" });
     if (typeof window !== "undefined") {
       if (window.history.pushState) {
@@ -30,6 +33,8 @@ export function handleScrollTo(
         window.location.hash = `#${id}`;
       }
     }
+  } else if (typeof window !== "undefined") {
+    window.location.href = `/${targetHref.startsWith("#") ? targetHref : `#${id}`}`;
   }
 
   if (onComplete) {

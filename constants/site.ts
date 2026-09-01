@@ -184,6 +184,48 @@ export const SITE = {
       "Engineering",
       "Allied Industries",
     ],
+    logos: [
+      {
+        name: "Bridgestone",
+        src: "/images/client/Bridgestone.png",
+      },
+      {
+        name: "Apollo Tyres",
+        src: "/images/client/apollo tyers.png",
+      },
+      {
+        name: "PepsiCo",
+        src: "/images/client/pepsi.png",
+      },
+      {
+        name: "Bunge",
+        src: "/images/client/bunge.png",
+      },
+      {
+        name: "Dainik Bhaskar",
+        src: "/images/client/danik.png",
+      },
+      {
+        name: "Goodyear",
+        src: "/images/client/goodyear.png",
+      },
+      {
+        name: "Norton",
+        src: "/images/client/Norton.png",
+      },
+      {
+        name: "Schneider Electric",
+        src: "/images/client/schneider electric.png",
+      },
+      {
+        name: "Tata Motors",
+        src: "/images/client/tata motors.png",
+      },
+      {
+        name: "Tata Steel",
+        src: "/images/client/tata steel.png",
+      },
+    ],
   },
 
   contact: {

@@ -55,7 +55,7 @@
   --color-surface-soft: #fafafa;
 
   /* Typography */
-  --font-sans: "Raleway", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-raleway), "Raleway", ui-sans-serif, system-ui, sans-serif;
   --font-adelia: "Adelia", "Amoresa", cursive;
   --font-amoresa: "Amoresa", "Adelia", cursive;
   --font-great-vibes: "Great Vibes", cursive;
@@ -106,7 +106,7 @@ body {
   background: var(--color-surface);
   color: var(--color-ink);
 
-  font-family: var(--font-sans);
+  font-family: "Raleway", var(--font-raleway), ui-sans-serif, system-ui, sans-serif !important;
   font-size: 16px;
   line-height: 1.6;
 
@@ -209,32 +209,33 @@ button {
   }
 }
 
-/* ---------------------------------------------------------
-   BRAND UTILITIES
-   --------------------------------------------------------- */
+.font-sans,
+.font-raleway {
+  font-family: "Raleway", var(--font-raleway), ui-sans-serif, system-ui, sans-serif !important;
+}
 
 .font-adelia {
-  font-family: var(--font-adelia), "Adelia", "Amoresa", cursive;
+  font-family: var(--font-adelia), "Adelia", "Amoresa", cursive !important;
 }
 
 .font-amoresa {
-  font-family: var(--font-amoresa), "Amoresa", "Adelia", cursive;
+  font-family: var(--font-amoresa), "Amoresa", "Adelia", cursive !important;
 }
 
 .font-great-vibes {
-  font-family: var(--font-great-vibes), "Great Vibes", cursive;
+  font-family: var(--font-great-vibes), "Great Vibes", cursive !important;
 }
 
 .font-playfair {
-  font-family: var(--font-playfair), "Playfair Display", serif;
+  font-family: var(--font-playfair), "Playfair Display", serif !important;
 }
 
 .font-playwrite {
-  font-family: var(--font-playwrite), "Playwrite VN", cursive;
+  font-family: var(--font-playwrite), "Playwrite VN", cursive !important;
 }
 
 .font-accent {
-  font-family: var(--font-accent), "Amoresa", "Adelia", "Dancing Script", "Caveat", cursive;
+  font-family: var(--font-accent), "Amoresa", "Adelia", "Dancing Script", "Caveat", cursive !important;
 }
 
 .text-brand {
@@ -372,15 +373,6 @@ button {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-}
-
-.eyebrow::before {
-  content: "";
-
-  width: 20px;
-  height: 2px;
-
-  background: currentColor;
 }
 
 /* ---------------------------------------------------------
@@ -828,8 +820,8 @@ button {
 }
 
 @theme inline {
-  --font-heading: var(--font-sans);
-  --font-sans: var(--font-sans);
+  --font-heading: var(--font-raleway), "Raleway", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-raleway), "Raleway", ui-sans-serif, system-ui, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -945,8 +937,10 @@ button {
   }
   body {
     @apply bg-background text-foreground;
+    font-family: "Raleway", var(--font-raleway), ui-sans-serif, system-ui, sans-serif !important;
   }
   html {
     @apply font-sans;
+    font-family: "Raleway", var(--font-raleway), ui-sans-serif, system-ui, sans-serif !important;
   }
 }

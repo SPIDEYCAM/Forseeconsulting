@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ArrowRight, Check, Mail, MessageCircle } from "lucide-react";
 
 import { SITE } from "@/constants/site";
@@ -8,6 +9,8 @@ import Container from "@/components/ui/Container";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const whatsappNumber = SITE.contact.whatsapp.replace(/\D/g, "");
 
@@ -15,13 +18,43 @@ export default function Contact() {
     "Hi Foresee Consulting Services, I would like to discuss a hiring requirement."
   )}`;
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setLoading(true);
+    setError(null);
 
-    // Formspree integration will be connected here
-    // once the Formspree form ID is created.
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
-    setSubmitted(true);
+    formData.append(
+      "access_key",
+      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ""
+    );
+
+    formData.append(
+      "subject",
+      "New Hiring Enquiry — Forsee Consulting Services"
+    );
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        form.reset();
+        setSubmitted(true);
+      } else {
+        setError(data.message || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -107,16 +140,16 @@ export default function Contact() {
             {/* Form */}
             <div className="rounded-[2rem] bg-white p-6 text-[#171717] sm:p-8 lg:p-10">
               {submitted ? (
-                <div className="flex min-h-[420px] flex-col items-center justify-center text-center">
-                  <span className="flex size-14 items-center justify-center rounded-full bg-brand-red text-white">
-                    <Check className="size-6" />
+                <div className="flex min-h-[420px] flex-col items-center justify-center text-center px-4 py-8">
+                  <span className="flex size-16 items-center justify-center rounded-full bg-brand-red text-white">
+                    <Check className="size-7" />
                   </span>
 
-                  <h3 className="mt-6 text-3xl font-semibold tracking-[-0.04em]">
+                  <h3 className="mt-8 text-3xl font-semibold tracking-[-0.04em]">
                     Thank you.
                   </h3>
 
-                  <p className="mt-3 max-w-sm text-sm leading-relaxed text-[#737373]">
+                  <p className="mt-4 max-w-sm text-sm leading-relaxed text-[#737373]">
                     Your enquiry has been received. Our team will
                     get back to you shortly.
                   </p>
@@ -237,17 +270,30 @@ export default function Contact() {
                     />
                   </div>
 
+                  {error && (
+                    <p className="text-xs font-medium text-brand-red">
+                      {error}
+                    </p>
+                  )}
+
                   <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
                     <p className="max-w-xs text-xs leading-relaxed text-[#737373]">
-                      We'll use your details only to respond to
-                      your enquiry.
+                      By submitting this form, you agree that Forsee Consulting Services may use the information provided to respond to your enquiry. See our{" "}
+                      <Link
+                        href="/privacy"
+                        className="font-medium text-brand-red underline hover:text-brand-red-dark"
+                      >
+                        Privacy Policy
+                      </Link>
+                      .
                     </p>
 
                     <button
                       type="submit"
-                      className="btn-primary shrink-0"
+                      disabled={loading}
+                      className="btn-primary shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Send Enquiry
+                      {loading ? "Sending..." : "Send Enquiry"}
                       <ArrowRight className="size-4" />
                     </button>
                   </div>

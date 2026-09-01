@@ -107,9 +107,18 @@ export default function Footer() {
               {SITE.footer.copyright}
             </p>
 
-            <p className="text-xs uppercase tracking-[0.12em] text-white/30">
-              India · Middle East
-            </p>
+            <div className="flex items-center gap-6">
+              <Link
+                href="/privacy"
+                className="text-xs text-white/45 transition-colors duration-200 hover:text-white"
+              >
+                Privacy Policy
+              </Link>
+
+              <p className="text-xs uppercase tracking-[0.12em] text-white/30">
+                India · Middle East
+              </p>
+            </div>
           </div>
         </div>
       </Container>
