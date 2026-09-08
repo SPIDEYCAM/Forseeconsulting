@@ -13,6 +13,15 @@ const raleway = Raleway({
 export const metadata: Metadata = {
   title: "Foresee Consulting",
   description: "Foresee Consulting Services",
+  icons: {
+    icon: [
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-32.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({
