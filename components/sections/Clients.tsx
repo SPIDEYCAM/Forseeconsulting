@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { SITE } from "@/constants/site";
@@ -131,23 +132,17 @@ export default function Clients() {
             </div>
           </div>
 
-          {/* Small transition */}
-          <div className="mt-12 flex items-center justify-between">
-            <p className="text-sm text-[#737373]">
-              Ready to discuss your next hiring requirement?
-            </p>
-
-            <a
-              href="#contact"
-              onClick={(e) => handleScrollTo(e, "#contact")}
-              className="group hidden items-center gap-2 text-sm font-semibold text-[#171717] sm:flex"
+          {/* Centered CTA to full Clients page */}
+          <div className="mt-14 flex justify-center">
+            <Link
+              href="/clients"
+              className="group inline-flex items-center gap-3.5 rounded-full border border-[#111315] bg-[#111315] px-7 py-3.5 text-sm font-semibold text-brand-red shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:border-black hover:bg-black hover:shadow-lg"
             >
-              Start a conversation
-
-              <span className="flex size-8 items-center justify-center rounded-full bg-[#171717] text-white transition-transform duration-300 group-hover:translate-x-1">
+              <span className="text-brand-red">Explore All Clients &amp; Success Stories</span>
+              <span className="flex size-7 items-center justify-center rounded-full bg-brand-red text-white transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                 <ArrowUpRight className="size-3.5" />
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </Container>
