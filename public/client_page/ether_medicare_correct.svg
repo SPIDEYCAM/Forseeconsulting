@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 2048 497"
+     width="2048"
+     height="497"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Ether Medicare logo</title>
+  <desc id="desc">Stylized pink EM mark enclosed by a black sweeping crescent, followed by ETHER MEDICARE in dark serif lettering.</desc>
+
+  <!-- Black sweeping crescent -->
+  <path
+    d="M 530,70
+       C 382,72 240,103 151,166
+       C 95,206 83,252 97,300
+       C 115,360 192,419 330,450
+       C 381,462 430,466 469,466
+       C 348,444 252,408 190,356
+       C 135,311 115,264 131,224
+       C 153,169 263,105 530,70 Z"
+    fill="#000000"/>
+
+  <!-- Stylized E -->
+  <g fill="#E34B8B">
+    <rect x="268" y="160" width="122" height="38" rx="1"/>
+    <rect x="268" y="247" width="122" height="38" rx="1"/>
+    <rect x="268" y="336" width="122" height="38" rx="1"/>
+
+    <!-- Stylized M -->
+    <path d="
+      M 402,160
+      L 470,160
+      L 505,270
+      L 542,160
+      L 610,160
+      L 610,374
+      L 552,374
+      L 552,237
+      L 518,337
+      L 489,337
+      L 455,237
+      L 455,374
+      L 402,374 Z"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text
+    x="637"
+    y="333"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="143"
+    font-weight="400"
+    letter-spacing="1"
+    fill="#333333">ETHER MEDICARE</text>
+</svg>

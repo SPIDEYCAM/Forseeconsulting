@@ -1,13 +1,44 @@
 "use client";
 
+import { useState, useRef } from "react";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown, ChevronUp } from "lucide-react";
 
 import { SITE } from "@/constants/site";
 import Container from "@/components/ui/Container";
-import { handleScrollTo } from "@/lib/utils";
+import { handleScrollTo, cn } from "@/lib/utils";
+
+const INITIAL_LOGO_COUNT = 10;
 
 export default function Clients() {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const logoHeaderRef = useRef<HTMLDivElement>(null);
+  const expandButtonRef = useRef<HTMLDivElement>(null);
+
+  const totalLogos = SITE.clients.logos.length;
+  const hasMore = totalLogos > INITIAL_LOGO_COUNT;
+  const visibleLogos = isExpanded
+    ? SITE.clients.logos
+    : SITE.clients.logos.slice(0, INITIAL_LOGO_COUNT);
+
+  const handleToggleExpand = () => {
+    if (!isExpanded) {
+      setIsExpanded(true);
+      setTimeout(() => {
+        expandButtonRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
+      }, 100);
+    } else {
+      setIsExpanded(false);
+      logoHeaderRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <section
       id="clients"
@@ -65,7 +96,7 @@ export default function Clients() {
           </div>
 
           {/* Logo area */}
-          <div className="mt-16 border-t border-[#171717]/10 pt-16 sm:pt-20">
+          <div ref={logoHeaderRef} className="mt-16 border-t border-[#171717]/10 pt-16 sm:pt-20">
             <div className="mb-12 text-center sm:mb-16">
               <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-brand-red">
                 Trusted by leading organizations
@@ -80,8 +111,8 @@ export default function Clients() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 items-center justify-items-center gap-6 sm:grid-cols-3 lg:grid-cols-5 lg:gap-8">
-              {SITE.clients.logos.map((logo) => (
+            <div className="grid grid-cols-2 items-center justify-items-center gap-6 sm:grid-cols-3 lg:grid-cols-5 lg:gap-8 transition-all duration-500">
+              {visibleLogos.map((logo) => (
                 <div
                   key={logo.name}
                   className="flex h-24 w-full items-center justify-center p-4 transition-transform duration-300 hover:scale-105"
@@ -91,11 +122,35 @@ export default function Clients() {
                     alt={logo.name}
                     width={180}
                     height={72}
-                    className="max-h-12 w-auto max-w-[140px] object-contain sm:max-h-14 sm:max-w-[160px]"
+                    className={cn(
+                      "max-h-12 w-auto max-w-[140px] object-contain sm:max-h-14 sm:max-w-[160px] transition-transform duration-300",
+                      "scale" in logo ? (logo as { scale?: string }).scale : ""
+                    )}
                   />
                 </div>
               ))}
             </div>
+
+            {/* Expand / Collapse Control */}
+            {hasMore && (
+              <div ref={expandButtonRef} className="mt-12 flex justify-center">
+                <button
+                  type="button"
+                  onClick={handleToggleExpand}
+                  className="group inline-flex items-center gap-2.5 rounded-full border border-[#171717]/15 bg-white px-6 py-3 text-sm font-semibold text-[#171717] transition-all duration-300 hover:border-[#171717] hover:bg-[#171717] hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-red focus:ring-offset-2"
+                  aria-expanded={isExpanded}
+                >
+                  <span>{isExpanded ? "Show less" : "View all clients"}</span>
+                  <span className="flex size-6 items-center justify-center rounded-full bg-brand-red text-white transition-transform duration-300 group-hover:bg-white group-hover:text-[#171717]">
+                    {isExpanded ? (
+                      <ChevronUp className="size-3.5" />
+                    ) : (
+                      <ChevronDown className="size-3.5" />
+                    )}
+                  </span>
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Bottom trust points */}

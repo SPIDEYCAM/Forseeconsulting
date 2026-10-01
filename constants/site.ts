@@ -186,44 +186,90 @@ export const SITE = {
     ],
     logos: [
       {
-        name: "Bridgestone",
-        src: "/images/client/Bridgestone.png",
+        name: "Goodyear",
+        src: "/client_page/Goodyear Logo SVG.svg",
+      },
+      {
+        name: "Exide",
+        src: "/client_page/Exide.svg",
       },
       {
         name: "Apollo Tyres",
-        src: "/images/client/apollo tyers.png",
-      },
-      {
-        name: "PepsiCo",
-        src: "/images/client/pepsi.png",
-      },
-      {
-        name: "Bunge",
-        src: "/images/client/bunge.png",
+        src: "/client_page/Apollo_Tyres_logo.svg",
       },
       {
         name: "Dainik Bhaskar",
-        src: "/images/client/danik.png",
+        src: "/client_page/Dainik_Bhaskar_Logo.svg",
       },
       {
-        name: "Goodyear",
-        src: "/images/client/goodyear.png",
+        name: "Bunge",
+        src: "/client_page/Bunge_Limited_Logo.svg",
       },
       {
-        name: "Norton",
-        src: "/images/client/Norton.png",
-      },
-      {
-        name: "Schneider Electric",
-        src: "/images/client/schneider electric.png",
-      },
-      {
-        name: "Tata Motors",
-        src: "/images/client/tata motors.png",
+        name: "JK Paper",
+        src: "/client_page/JKPAPER.NS_BIG.svg",
+        scale: "scale-[1.35] sm:scale-[1.45]",
       },
       {
         name: "Tata Steel",
         src: "/images/client/tata steel.png",
+      },
+      {
+        name: "Bridgestone",
+        src: "/client_page/Bridgestone_logo.svg",
+      },
+      {
+        name: "V-Mart",
+        src: "/client_page/V-Mart Logo SVG.svg",
+      },
+      {
+        name: "Pepsi",
+        src: "/client_page/pepsi-logo-svgrepo-com.svg",
+        scale: "scale-[1.3] sm:scale-[1.4]",
+      },
+      {
+        name: "JK Tyre",
+        src: "/client_page/jk-tyre-1.svg",
+        scale: "scale-[1.9] sm:scale-[2.2] max-w-none",
+      },
+      {
+        name: "Tata Motors",
+        src: "/client_page/Tata_Motors_Logo.svg",
+      },
+      {
+        name: "Avery Weigh-Tronix",
+        src: "/client_page/Avery_weigh-tronix_logo.png",
+      },
+      {
+        name: "Schneider Electric",
+        src: "/client_page/SchneiderElectric_Logo.svg",
+      },
+      {
+        name: "Amara Raja",
+        src: "/client_page/ARE&M.NS_BIG.svg",
+      },
+      {
+        name: "Norton / Saint-Gobain",
+        src: "/images/client/Norton.png",
+      },
+      {
+        name: "Ether Medicare",
+        src: "/client_page/ether_medicare_correct.svg",
+        scale: "scale-[1.2] sm:scale-[1.3]",
+      },
+      {
+        name: "GAAR",
+        src: "/client_page/cdnlogo.com_gmr-group-logo.svg",
+        scale: "scale-[1.35] sm:scale-[1.45]",
+      },
+      {
+        name: "Luthra Group",
+        src: "/client_page/Luthra Group Pegasus Logo.png",
+        scale: "scale-[1.35] sm:scale-[1.45]",
+      },
+      {
+        name: "Religare",
+        src: "/client_page/RELIGARE.NS_BIG.svg",
       },
     ],
   },
